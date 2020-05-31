@@ -200,7 +200,10 @@ def validate(date_text):
 def push_update(doc_path, PATH_OF_GIT_REPO, notes):
     doc=docx.Document(doc_path)
     project=notes['project']
-    notes.update({'pushes':git_push(project,PATH_OF_GIT_REPO)})
+    if PATH_OF_GIT_REPO != "":
+        notes.update({'pushes':git_push(project,PATH_OF_GIT_REPO)})
+    else:
+        notes.update({'pushes':[]})
     for i, text in enumerate(reversed(doc.paragraphs)):
         if validate(text.text) == True:
             last_date = text.text
