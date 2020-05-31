@@ -200,7 +200,7 @@ def validate(date_text):
 def push_update(doc_path, PATH_OF_GIT_REPO, notes):
     doc=docx.Document(doc_path)
     project=notes['project']
-    if PATH_OF_GIT_REPO != "":
+    if PATH_OF_GIT_REPO is not None:
         notes.update({'pushes':git_push(project,PATH_OF_GIT_REPO)})
     else:
         notes.update({'pushes':[]})
