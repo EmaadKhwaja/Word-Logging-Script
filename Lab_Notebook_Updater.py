@@ -78,8 +78,6 @@ def log_table(doc, table_name, comments=[]):
             cells[2].text = row[2]
 
         table.style = 'ColorfulList-Accent2'
-        doc.add_paragraph()
-
 
 def new_entry(doc, notes):
     heading = doc.add_paragraph(date)
